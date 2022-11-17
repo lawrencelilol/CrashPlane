@@ -16,6 +16,10 @@ enum GameState {
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
   
+  // import GameStepSDK
+  
+//  var user: GameStepSDK!
+  
   var player: SKSpriteNode!
   var scoreLabel: SKLabelNode!
   var backgroundMusic: SKAudioNode!
@@ -38,8 +42,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   // cache for player's explosion
   let explosion = SKEmitterNode(fileNamed: "PlayerExplosion")
-
-
 
   
   override func didMove(to view: SKView) {
@@ -106,54 +108,56 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   
-  
   // collision of the plane and rocks work in here
   func didBegin(_ contact: SKPhysicsContact) {
-      // if user toches the red rectangle
     
-      if contact.bodyA.node?.name == "scoreDetect" || contact.bodyB.node?.name == "scoreDetect" {
-          if contact.bodyA.node == player {
-              contact.bodyB.node?.removeFromParent()
-          } else {
-              contact.bodyA.node?.removeFromParent()
-          }
-
-          let sound = SKAction.playSoundFileNamed("coin.wav", waitForCompletion: false)
-          run(sound)
-
-          score += 1
-
-          return
+    // if user toches the red rectangle
+    if contact.bodyA.node?.name == "scoreDetect" || contact.bodyB.node?.name == "scoreDetect" {
+      if contact.bodyA.node == player {
+        contact.bodyB.node?.removeFromParent()
+      } else {
+        contact.bodyA.node?.removeFromParent()
       }
-
-      guard contact.bodyA.node != nil && contact.bodyB.node != nil else {
-          return
-      }
-    
       
-      // if user touches rock and ground
-      if contact.bodyA.node == player || contact.bodyB.node == player {
-        if let explosion = SKEmitterNode(fileNamed: "PlayerExplosion") {
-            explosion.position = player.position
-            addChild(explosion)
-        }
-
-        let sound = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
-        run(sound)
-        
-        // change states when the user is dead
-        gameOver.alpha = 1
-        gameState = .dead
-        
-        if backgroundMusic != nil {
-          backgroundMusic.run(SKAction.stop())
-        }
-        
-
-        player.removeFromParent()
-        speed = 0
-      }
+      let sound = SKAction.playSoundFileNamed("coin.wav", waitForCompletion: false)
+      run(sound)
+      
+      score += 1
+      
+      return
+    }
     
+    guard contact.bodyA.node != nil && contact.bodyB.node != nil else {
+      return
+    }
+    
+    
+    // if user touches rock and ground
+    if contact.bodyA.node == player || contact.bodyB.node == player {
+      if let explosion = SKEmitterNode(fileNamed: "PlayerExplosion") {
+        explosion.position = player.position
+        addChild(explosion)
+      }
+      
+      let sound = SKAction.playSoundFileNamed("explosion.wav", waitForCompletion: false)
+      run(sound)
+      
+      // change states when the user is dead
+      gameOver.alpha = 1
+      gameState = .dead
+      
+      if backgroundMusic != nil {
+        backgroundMusic.run(SKAction.stop())
+      }
+      
+      player.removeFromParent()
+      speed = 0
+    }
+    
+    // if user have efficient coins
+    // if user.coins -5 >= 0 {
+//        revive()
+//    }
   }
   
   // create the start scene for the game
@@ -182,7 +186,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       player.physicsBody?.isDynamic = false
       
       player.physicsBody?.collisionBitMask = 0
-
 
 
       let frame2 = SKTexture(imageNamed: "player-2")
@@ -330,6 +333,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       scoreLabel.fontColor = UIColor.black
 
       addChild(scoreLabel)
+  }
+  
+  // revive function
+  func revive() {
+    
   }
   
 }

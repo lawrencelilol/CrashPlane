@@ -56,12 +56,12 @@
 		217D8FA92921EC8C00F7FA59 /* CrashPlaneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrashPlaneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		217D8FAD2921EC8C00F7FA59 /* CrashPlaneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashPlaneUITests.swift; sourceTree = "<group>"; };
 		217D8FAF2921EC8C00F7FA59 /* CrashPlaneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashPlaneUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2197674A29231B2400C25E89 /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = music.m4a; path = "../../../../../Downloads/HackingWithSwift-main/Classic/project36/Project36/music.m4a"; sourceTree = "<group>"; };
-		2197674C29231B2F00C25E89 /* PlayerExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = PlayerExplosion.sks; path = "../../../../../Downloads/HackingWithSwift-main/Classic/project36/Project36/PlayerExplosion.sks"; sourceTree = "<group>"; };
-		2197674E29231B3800C25E89 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = coin.wav; path = "../../../../../Downloads/HackingWithSwift-main/Classic/project36/Project36/coin.wav"; sourceTree = "<group>"; };
-		2197675029231B3F00C25E89 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = explosion.wav; path = "../../../../../Downloads/HackingWithSwift-main/Classic/project36/Project36/explosion.wav"; sourceTree = "<group>"; };
-		2197675229231B4A00C25E89 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = "../../../../../Downloads/HackingWithSwift-main/Classic/project36/Project36/spark.png"; sourceTree = "<group>"; };
-		2197675429231B6500C25E89 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.txt; path = "../../../../../Downloads/HackingWithSwift-main/Classic/project36/Project36/README.txt"; sourceTree = "<group>"; };
+		2197674A29231B2400C25E89 /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = music.m4a; path = CrashPlane/music.m4a; sourceTree = SOURCE_ROOT; };
+		2197674C29231B2F00C25E89 /* PlayerExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = PlayerExplosion.sks; path = CrashPlane/PlayerExplosion.sks; sourceTree = SOURCE_ROOT; };
+		2197674E29231B3800C25E89 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = coin.wav; path = CrashPlane/coin.wav; sourceTree = SOURCE_ROOT; };
+		2197675029231B3F00C25E89 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = explosion.wav; path = CrashPlane/explosion.wav; sourceTree = SOURCE_ROOT; };
+		2197675229231B4A00C25E89 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = CrashPlane/spark.png; sourceTree = SOURCE_ROOT; };
+		2197675429231B6500C25E89 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
