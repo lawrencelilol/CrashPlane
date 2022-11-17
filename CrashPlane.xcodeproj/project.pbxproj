@@ -17,7 +17,6 @@
 		217D8FA42921EC8C00F7FA59 /* CrashPlaneTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D8FA32921EC8C00F7FA59 /* CrashPlaneTests.swift */; };
 		217D8FAE2921EC8C00F7FA59 /* CrashPlaneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D8FAD2921EC8C00F7FA59 /* CrashPlaneUITests.swift */; };
 		217D8FB02921EC8C00F7FA59 /* CrashPlaneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217D8FAF2921EC8C00F7FA59 /* CrashPlaneUITestsLaunchTests.swift */; };
-		2197674B29231B2400C25E89 /* music.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 2197674A29231B2400C25E89 /* music.m4a */; };
 		2197674D29231B2F00C25E89 /* PlayerExplosion.sks in Resources */ = {isa = PBXBuildFile; fileRef = 2197674C29231B2F00C25E89 /* PlayerExplosion.sks */; };
 		2197674F29231B3800C25E89 /* coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2197674E29231B3800C25E89 /* coin.wav */; };
 		2197675129231B3F00C25E89 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2197675029231B3F00C25E89 /* explosion.wav */; };
@@ -56,11 +55,11 @@
 		217D8FA92921EC8C00F7FA59 /* CrashPlaneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrashPlaneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		217D8FAD2921EC8C00F7FA59 /* CrashPlaneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashPlaneUITests.swift; sourceTree = "<group>"; };
 		217D8FAF2921EC8C00F7FA59 /* CrashPlaneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashPlaneUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		2197674A29231B2400C25E89 /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = music.m4a; path = CrashPlane/music.m4a; sourceTree = SOURCE_ROOT; };
-		2197674C29231B2F00C25E89 /* PlayerExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; name = PlayerExplosion.sks; path = CrashPlane/PlayerExplosion.sks; sourceTree = SOURCE_ROOT; };
-		2197674E29231B3800C25E89 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = coin.wav; path = CrashPlane/coin.wav; sourceTree = SOURCE_ROOT; };
-		2197675029231B3F00C25E89 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = explosion.wav; path = CrashPlane/explosion.wav; sourceTree = SOURCE_ROOT; };
-		2197675229231B4A00C25E89 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = spark.png; path = CrashPlane/spark.png; sourceTree = SOURCE_ROOT; };
+		21836CE62926CA0A004082D7 /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = music.m4a; sourceTree = "<group>"; };
+		2197674C29231B2F00C25E89 /* PlayerExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerExplosion.sks; sourceTree = "<group>"; };
+		2197674E29231B3800C25E89 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
+		2197675029231B3F00C25E89 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
+		2197675229231B4A00C25E89 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		2197675429231B6500C25E89 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,7 +145,7 @@
 			children = (
 				2197675429231B6500C25E89 /* README.txt */,
 				2197675029231B3F00C25E89 /* explosion.wav */,
-				2197674A29231B2400C25E89 /* music.m4a */,
+				21836CE62926CA0A004082D7 /* music.m4a */,
 				2197674C29231B2F00C25E89 /* PlayerExplosion.sks */,
 				2197674E29231B3800C25E89 /* coin.wav */,
 				2197675229231B4A00C25E89 /* spark.png */,
@@ -266,7 +265,6 @@
 				217D8F952921EC8900F7FA59 /* Main.storyboard in Resources */,
 				217D8F8C2921EC8900F7FA59 /* GameScene.sks in Resources */,
 				217D8F972921EC8B00F7FA59 /* Assets.xcassets in Resources */,
-				2197674B29231B2400C25E89 /* music.m4a in Resources */,
 				217D8F9A2921EC8B00F7FA59 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
