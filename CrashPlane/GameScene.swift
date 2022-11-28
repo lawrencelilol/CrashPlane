@@ -12,6 +12,7 @@ enum GameState {
     case showingLogo
     case playing
     case dead
+    case revive
 }
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
@@ -22,6 +23,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   var player: SKSpriteNode!
   var scoreLabel: SKLabelNode!
+  var coinLabel: SKLabelNode!
   var backgroundMusic: SKAudioNode!
   
   var logo: SKSpriteNode!
@@ -35,6 +37,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       }
   }
   
+  
+  // testing purpose providing user 10 coins for now
+  var coin = 10 {
+    didSet {
+      coinLabel.text = "COIN: \(coin)"
+    }
+  }
+  
+  // default cost for revive is 5
+  let costToRevive = 5
+  
   // cache for creating rock
   
   let rockTexture = SKTexture(imageNamed: "rock")
@@ -42,6 +55,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   // cache for player's explosion
   let explosion = SKEmitterNode(fileNamed: "PlayerExplosion")
+  
+  
+  func setScore(val: Int) {
+    score = val
+  }
+  
+  func setCoin(val: Int) {
+    coin = val
+  }
 
   
   override func didMove(to view: SKView) {
@@ -51,6 +73,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     createGround()
     createScore()
     createLogos()
+    createCoin()
     
     // add gravity to the game
     physicsWorld.gravity = CGVector(dx: 0.0, dy: -5.0)
@@ -68,8 +91,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
     switch gameState {
         case .showingLogo:
+        
             gameState = .playing
 
             let fadeOut = SKAction.fadeOut(withDuration: 0.5)
@@ -84,17 +109,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             logo.run(sequence)
 
         case .playing:
+        
             player.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
 
         case .dead:
+        
           if let scene = GameScene(fileNamed: "GameScene") {
             scene.scaleMode = .aspectFill
             let transition = SKTransition.moveIn(with: SKTransitionDirection.right, duration: 1)
             view?.presentScene(scene, transition: transition)
           }
+        
+      case .revive:
+          
+        let scoreWhenDead = score
+        let coinAfterRevive = coin - costToRevive
+        
+        if let scene = GameScene(fileNamed: "GameScene") {
+          scene.scaleMode = .aspectFill
+          let transition = SKTransition.moveIn(with: SKTransitionDirection.right, duration: 1)
+          view?.presentScene(scene, transition: transition)
+          scene.setScore(val: scoreWhenDead)
+          scene.setCoin(val: coinAfterRevive)
         }
-    
+      }
+        
+ 
   }
   
   override func update(_ currentTime: TimeInterval) {
@@ -143,24 +184,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       run(sound)
       
       // change states when the user is dead
-      gameOver.alpha = 1
-      gameState = .dead
-      
-      if backgroundMusic != nil {
-        backgroundMusic.run(SKAction.stop())
+      if coin >= 5 {
+        
+        gameState = .revive
+        speed = 0
+        
+        
+        
+      } else {
+        gameOver.alpha = 1
+        gameState = .dead
+        
+        if backgroundMusic != nil {
+          backgroundMusic.run(SKAction.stop())
+        }
+        
+        player.removeFromParent()
+        speed = 0
       }
       
-      player.removeFromParent()
-      speed = 0
     }
     
     // if user have efficient coins
-    // if user.coins -5 >= 0 {
-//        revive()
-//    }
+    
   }
   
-  // create the start scene for the game
+//  func revive() {
+//    gameState = .showingLogo
+//
+//  }
+  // create the start scene and end scene for the game
   func createLogos() {
       logo = SKSpriteNode(imageNamed: "logo")
       logo.position = CGPoint(x: frame.midX, y: frame.midY)
@@ -170,10 +223,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       gameOver.position = CGPoint(x: frame.midX, y: frame.midY)
       gameOver.alpha = 0
       addChild(gameOver)
+    
+      
   }
   
   // create the player
   func createPlayer() {
+    
       let playerTexture = SKTexture(imageNamed: "player-1")
       player = SKSpriteNode(texture: playerTexture)
       player.zPosition = 10
@@ -197,6 +253,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func createSky() {
+    
       let topSky = SKSpriteNode(color: UIColor(hue: 0.55, saturation: 0.14, brightness: 0.97, alpha: 1), size: CGSize(width: frame.width, height: frame.height * 0.67))
       topSky.anchorPoint = CGPoint(x: 0.5, y: 1)
 
@@ -255,7 +312,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       }
   }
   
+  // MARK: Creat Rocks Here
   func createRocks() {
+    
       // 1
       let rockTexture = SKTexture(imageNamed: "rock")
 
@@ -287,17 +346,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       addChild(bottomRock)
       addChild(rockCollision)
     
-    // 3
+      // 3
       let xPosition = frame.width + topRock.frame.width
 
       let max = CGFloat(frame.height / 3)
       let yPosition = CGFloat.random(in: -50...max)
 
-        // this next value affects the width of the gap between rocks
-        // make it smaller to make your game harder – if you're feeling evil!
+      // this next value affects the width of the gap between rocks
+      // make it smaller to make your game harder – if you're feeling evil!
       let rockDistance: CGFloat = 70
 
-        // 4
+      // 4
       topRock.position = CGPoint(x: xPosition, y: yPosition + topRock.size.height + rockDistance)
       bottomRock.position = CGPoint(x: xPosition, y: yPosition - rockDistance)
       rockCollision.position = CGPoint(x: xPosition + (rockCollision.size.width * 2), y:frame.midY)
@@ -326,19 +385,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   func createScore() {
       scoreLabel = SKLabelNode(fontNamed: "Optima-ExtraBlack")
-      scoreLabel.fontSize = 24
+      scoreLabel.fontSize = 20
 
-      scoreLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 70)
+      scoreLabel.position = CGPoint(x: frame.midX - 65, y: frame.maxY - 70)
       scoreLabel.text = "SCORE: 0"
       scoreLabel.fontColor = UIColor.black
 
       addChild(scoreLabel)
   }
   
-  // revive function
-  func revive() {
-    
+  func createCoin() {
+      coinLabel = SKLabelNode(fontNamed: "Optima-ExtraBlack")
+      coinLabel.fontSize = 20
+
+      coinLabel.position = CGPoint(x: frame.midX + 65, y: frame.maxY - 70)
+      coinLabel.text = "COIN: 10"
+      coinLabel.fontColor = UIColor.black
+
+      addChild(coinLabel)
   }
+  
   
 }
 

@@ -22,6 +22,7 @@
 		2197675129231B3F00C25E89 /* explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2197675029231B3F00C25E89 /* explosion.wav */; };
 		2197675329231B4A00C25E89 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2197675229231B4A00C25E89 /* spark.png */; };
 		2197675529231B6500C25E89 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2197675429231B6500C25E89 /* README.txt */; };
+		21A5AB7D2934531A00AC78F2 /* Revive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A5AB7C2934531A00AC78F2 /* Revive.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		2197675029231B3F00C25E89 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
 		2197675229231B4A00C25E89 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		2197675429231B6500C25E89 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		21A5AB7C2934531A00AC78F2 /* Revive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revive.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				217D8F892921EC8900F7FA59 /* AppDelegate.swift */,
 				217D8F8B2921EC8900F7FA59 /* GameScene.sks */,
 				217D8F8F2921EC8900F7FA59 /* GameScene.swift */,
+				21A5AB7C2934531A00AC78F2 /* Revive.swift */,
 				217D8F912921EC8900F7FA59 /* GameViewController.swift */,
 				217D8F932921EC8900F7FA59 /* Main.storyboard */,
 				217D8F962921EC8B00F7FA59 /* Assets.xcassets */,
@@ -290,6 +293,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21A5AB7D2934531A00AC78F2 /* Revive.swift in Sources */,
 				217D8F902921EC8900F7FA59 /* GameScene.swift in Sources */,
 				217D8F922921EC8900F7FA59 /* GameViewController.swift in Sources */,
 				217D8F8A2921EC8900F7FA59 /* AppDelegate.swift in Sources */,

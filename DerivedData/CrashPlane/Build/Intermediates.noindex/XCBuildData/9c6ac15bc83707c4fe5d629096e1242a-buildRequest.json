@@ -1,0 +1,63 @@
+{
+  "_buildCommand2" : {
+    "command" : "build",
+    "skipDependencies" : false,
+    "style" : "buildAndRun"
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "73613fa70e2f7e7c35992b95ed3bbe1dc9268d2f8650ab1b44f505db9a3f71f0"
+    }
+  ],
+  "containerPath" : "/Users/lawrence/Desktop/Mobile/Project/CrashPlane/CrashPlane.xcodeproj",
+  "continueBuildingAfterErrors" : false,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "x86_64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator16.1",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "x86_64"
+      ],
+      "targetArchitecture" : "x86_64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/lawrence/Desktop/Mobile/Project/CrashPlane/DerivedData/CrashPlane/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/lawrence/Desktop/Mobile/Project/CrashPlane/DerivedData/CrashPlane/Build/Products",
+      "derivedDataPath" : "/Users/lawrence/Desktop/Mobile/Project/CrashPlane/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/lawrence/Desktop/Mobile/Project/CrashPlane/DerivedData/CrashPlane/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/lawrence/Desktop/Mobile/Project/CrashPlane/DerivedData/CrashPlane/Index.noindex/PrecompiledHeaders",
+      "pchPath" : "/Users/lawrence/Desktop/Mobile/Project/CrashPlane/DerivedData/CrashPlane/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ASSETCATALOG_FILTER_FOR_DEVICE_MODEL" : "iPhone14,7",
+          "ASSETCATALOG_FILTER_FOR_DEVICE_OS_VERSION" : "16.1",
+          "ASSETCATALOG_FILTER_FOR_THINNING_DEVICE_CONFIGURATION" : "iPhone14,7",
+          "BUILD_ACTIVE_RESOURCES_ONLY" : "YES",
+          "ENABLE_PREVIEWS" : "NO",
+          "TARGET_DEVICE_IDENTIFIER" : "340E3581-1CB2-452C-AF13-33624CE32238",
+          "TARGET_DEVICE_MODEL" : "iPhone14,7",
+          "TARGET_DEVICE_OS_VERSION" : "16.1",
+          "TARGET_DEVICE_PLATFORM_NAME" : "iphonesimulator"
+        }
+      }
+    }
+  },
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : false,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}
