@@ -1,8 +1,0 @@
-version: "Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)"
-options: "3a16f3547a6b73207f2df03e1ba185230e71996250ea066bba6f2099e4d7a490"
-build_start_time: [1668790471, 978734970]
-build_end_time: [1668790472, 33965110]
-inputs:
-  "/Users/lawrence/Desktop/Mobile/Project/CrashPlane/CrashPlane/AppDelegate.swift": !private [1668396297, 904171466]
-  "/Users/lawrence/Desktop/Mobile/Project/CrashPlane/CrashPlane/GameScene.swift": !private [1668790467, 116644382]
-  "/Users/lawrence/Desktop/Mobile/Project/CrashPlane/CrashPlane/GameViewController.swift": !private [1668534007, 156212806]
