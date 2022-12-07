@@ -15,11 +15,14 @@ enum GameState {
     case revive
 }
 
+let globalUser = GameStep()
+
 class GameScene: SKScene, SKPhysicsContactDelegate {
   
   // import GameStepSDK
-  
-//  var user: GameStepSDK!
+	
+	var user = globalUser
+//	var coins = user.theCoin
   
   var player: SKSpriteNode!
   var scoreLabel: SKLabelNode!
@@ -36,10 +39,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
           scoreLabel.text = "SCORE: \(score)"
       }
   }
-  
+	
   
   // testing purpose providing user 10 coins for now
-  var coin = 10 {
+	var coin = 0 {
     didSet {
       coinLabel.text = "COIN: \(coin)"
     }
@@ -94,6 +97,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     switch gameState {
         case .showingLogo:
+			
+			      setCoin(val: user.theCoin)
         
             gameState = .playing
 
@@ -114,7 +119,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
 
         case .dead:
-        
+			
           if let scene = GameScene(fileNamed: "GameScene") {
             scene.scaleMode = .aspectFill
             let transition = SKTransition.moveIn(with: SKTransitionDirection.right, duration: 1)
@@ -122,16 +127,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
           }
         
       case .revive:
-          
+			  self.user.consumeCoin(coin: 20)
         let scoreWhenDead = score
-        let coinAfterRevive = coin - costToRevive
+//        let coinAfterRevive = coin - costToRevive
         
         if let scene = GameScene(fileNamed: "GameScene") {
           scene.scaleMode = .aspectFill
           let transition = SKTransition.moveIn(with: SKTransitionDirection.right, duration: 1)
           view?.presentScene(scene, transition: transition)
           scene.setScore(val: scoreWhenDead)
-          scene.setCoin(val: coinAfterRevive)
+//          scene.setCoin(val: coinAfterRevive)
         }
       }
         
@@ -399,7 +404,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       coinLabel.fontSize = 20
 
       coinLabel.position = CGPoint(x: frame.midX + 65, y: frame.maxY - 70)
-      coinLabel.text = "COIN: 10"
+		  coinLabel.text = "COIN: \(user.theCoin)"
       coinLabel.fontColor = UIColor.black
 
       addChild(coinLabel)

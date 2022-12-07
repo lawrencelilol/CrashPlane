@@ -23,6 +23,9 @@
 		2197675329231B4A00C25E89 /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 2197675229231B4A00C25E89 /* spark.png */; };
 		2197675529231B6500C25E89 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2197675429231B6500C25E89 /* README.txt */; };
 		21A5AB7D2934531A00AC78F2 /* Revive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A5AB7C2934531A00AC78F2 /* Revive.swift */; };
+		D6FF1FC3294020D200EAF9ED /* HealthStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF1FC2294020D200EAF9ED /* HealthStore.swift */; };
+		D6FF1FC5294020E400EAF9ED /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF1FC4294020E400EAF9ED /* Step.swift */; };
+		D6FF1FC72940211500EAF9ED /* GameStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6FF1FC62940211500EAF9ED /* GameStep.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,10 @@
 		2197675229231B4A00C25E89 /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		2197675429231B6500C25E89 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		21A5AB7C2934531A00AC78F2 /* Revive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Revive.swift; sourceTree = "<group>"; };
+		D6FF1FBF29401E6200EAF9ED /* CrashPlane.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CrashPlane.entitlements; sourceTree = "<group>"; };
+		D6FF1FC2294020D200EAF9ED /* HealthStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthStore.swift; sourceTree = "<group>"; };
+		D6FF1FC4294020E400EAF9ED /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		D6FF1FC62940211500EAF9ED /* GameStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStep.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +120,8 @@
 		217D8F882921EC8900F7FA59 /* CrashPlane */ = {
 			isa = PBXGroup;
 			children = (
+				D6FF1FC029401E9900EAF9ED /* GameStepSDK */,
+				D6FF1FBF29401E6200EAF9ED /* CrashPlane.entitlements */,
 				2197674929231AFF00C25E89 /* Content */,
 				217D8F892921EC8900F7FA59 /* AppDelegate.swift */,
 				217D8F8B2921EC8900F7FA59 /* GameScene.sks */,
@@ -154,6 +163,24 @@
 				2197675229231B4A00C25E89 /* spark.png */,
 			);
 			name = Content;
+			sourceTree = "<group>";
+		};
+		D6FF1FC029401E9900EAF9ED /* GameStepSDK */ = {
+			isa = PBXGroup;
+			children = (
+				D6FF1FC129401F2100EAF9ED /* HealthInfo */,
+				D6FF1FC62940211500EAF9ED /* GameStep.swift */,
+			);
+			name = GameStepSDK;
+			sourceTree = "<group>";
+		};
+		D6FF1FC129401F2100EAF9ED /* HealthInfo */ = {
+			isa = PBXGroup;
+			children = (
+				D6FF1FC2294020D200EAF9ED /* HealthStore.swift */,
+				D6FF1FC4294020E400EAF9ED /* Step.swift */,
+			);
+			name = HealthInfo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -294,9 +321,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				21A5AB7D2934531A00AC78F2 /* Revive.swift in Sources */,
+				D6FF1FC3294020D200EAF9ED /* HealthStore.swift in Sources */,
 				217D8F902921EC8900F7FA59 /* GameScene.swift in Sources */,
 				217D8F922921EC8900F7FA59 /* GameViewController.swift in Sources */,
 				217D8F8A2921EC8900F7FA59 /* AppDelegate.swift in Sources */,
+				D6FF1FC72940211500EAF9ED /* GameStep.swift in Sources */,
+				D6FF1FC5294020E400EAF9ED /* Step.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,10 +501,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CrashPlane/CrashPlane.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6X6P7WW83H;
+				DEVELOPMENT_TEAM = J2M7Q9SG77;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app requires to access your health data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app requires to access your health data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -499,10 +532,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CrashPlane/CrashPlane.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 6X6P7WW83H;
+				DEVELOPMENT_TEAM = J2M7Q9SG77;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app requires to access your health data";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app requires to access your health data";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
