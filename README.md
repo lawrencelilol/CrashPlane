@@ -6,7 +6,7 @@ Credit to :https://www.hackingwithswift.com/read/36/overview
 
 This repository is the demostration of the implementation of the GameStep SDK. The main structure consists with three parts: the controller of the game, the scene and the SDK implementation.
 
-To best imitate a true developing environent, internal coding of the SDK were encapsulated in the ```GameStepSDK``` folder, like a imported package.
+To best imitate a true developing environent, internal coding of the SDK were encapsulated in the ```GameStepSDK``` folder, like an imported package.
 
 ## The SDK
 The SDK functions as following:
