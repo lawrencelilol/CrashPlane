@@ -50,3 +50,4 @@ In future versions, if applicable, we hope the SDK will explore more powerful fe
 
 ## Develop Environment
 Swift 5
+iOS 16.1
