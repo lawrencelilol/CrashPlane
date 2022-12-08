@@ -38,7 +38,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   
-  // testing purpose providing user 10 coins for now
   var coin = 0 {
     didSet {
       coinLabel.text = "COIN: \(coin)"
@@ -310,7 +309,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   // MARK: Creat Rocks Here
   func createRocks() {
     
-      // 1
       let rockTexture = SKTexture(imageNamed: "rock")
 
       let topRock = SKSpriteNode(texture: rockTexture)
@@ -329,7 +327,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       topRock.zPosition = -20
       bottomRock.zPosition = -20
 
-      // 2
       let rockCollision = SKSpriteNode(color: UIColor.clear, size: CGSize(width: 32, height: frame.height))
     
       rockCollision.physicsBody = SKPhysicsBody(rectangleOf: rockCollision.size)
@@ -341,7 +338,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       addChild(bottomRock)
       addChild(rockCollision)
     
-      // 3
       let xPosition = frame.width + topRock.frame.width
 
       let max = CGFloat(frame.height / 3)
@@ -351,7 +347,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       // make it smaller to make your game harder – if you're feeling evil!
       let rockDistance: CGFloat = 70
 
-      // 4
       topRock.position = CGPoint(x: xPosition, y: yPosition + topRock.size.height + rockDistance)
       bottomRock.position = CGPoint(x: xPosition, y: yPosition - rockDistance)
       rockCollision.position = CGPoint(x: xPosition + (rockCollision.size.width * 2), y:frame.midY)
