@@ -12,7 +12,7 @@ enum GameState {
     case showingLogo
     case playing
     case dead
-    case revive
+//    case revive
 }
 
 
@@ -96,49 +96,55 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     
     switch gameState {
-        case .showingLogo:
-      
-            setCoin(val: user.theCoin)
+      case .showingLogo:
         
-            gameState = .playing
-
-            let fadeOut = SKAction.fadeOut(withDuration: 0.5)
-            let remove = SKAction.removeFromParent()
-            let wait = SKAction.wait(forDuration: 0.5)
-            let activatePlayer = SKAction.run { [unowned self] in
-                self.player.physicsBody?.isDynamic = true
-                self.startRocks()
-            }
-
-            let sequence = SKAction.sequence([fadeOut, wait, activatePlayer, remove])
-            logo.run(sequence)
-
-        case .playing:
+        setCoin(val: user.theCoin)
         
-            player.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
-
-        case .dead:
-      
-          if let scene = GameScene(fileNamed: "GameScene") {
-            scene.scaleMode = .aspectFill
-            let transition = SKTransition.moveIn(with: SKTransitionDirection.right, duration: 1)
-            view?.presentScene(scene, transition: transition)
-          }
+        gameState = .playing
         
-      case .revive:
-        self.user.consumeCoin(coin: 5)
-        let scoreWhenDead = score
-//        let coinAfterRevive = coin - costToRevive
+        let fadeOut = SKAction.fadeOut(withDuration: 0.5)
+        let remove = SKAction.removeFromParent()
+        let wait = SKAction.wait(forDuration: 0.5)
+        let activatePlayer = SKAction.run { [unowned self] in
+          self.player.physicsBody?.isDynamic = true
+          self.startRocks()
+        }
+        
+        let sequence = SKAction.sequence([fadeOut, wait, activatePlayer, remove])
+        logo.run(sequence)
+        
+      case .playing:
+        
+        player.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+        player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
+        
+      case .dead:
         
         if let scene = GameScene(fileNamed: "GameScene") {
           scene.scaleMode = .aspectFill
           let transition = SKTransition.moveIn(with: SKTransitionDirection.right, duration: 1)
           view?.presentScene(scene, transition: transition)
-          scene.setScore(val: scoreWhenDead)
-//          scene.setCoin(val: coinAfterRevive)
         }
-      }
+        
+        // we don't need revive anymore
+        //      case .revive:
+        
+        
+        //        self.user.consumeCoin(coin: costToRevive)
+        //        let scoreWhenDead = score
+        //        let coinAfterRevive = coin - costToRevive
+        
+        //        revive()
+        
+        
+        //        if let scene = GameScene(fileNamed: "GameScene") {
+        //          scene.scaleMode = .aspectFill
+        //          let transition = SKTransition.moveIn(with: SKTransitionDirection.right, duration: 1)
+        //          view?.presentScene(scene, transition: transition)
+        //          scene.setScore(val: scoreWhenDead)
+        ////          scene.setCoin(val: coinAfterRevive)
+        //        }
+    }
         
  
   }
@@ -189,11 +195,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       run(sound)
       
       // change states when the user is dead
-      if coin >= 5 {
+      if coin >= costToRevive {
         
-        gameState = .revive
+        
+        
+//        gameState = .revive
+//        player.removeFromParent()
         speed = 0
         
+        revive()
+      
         
         
       } else {
@@ -207,10 +218,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.removeFromParent()
         speed = 0
       }
-      
     }
     
+  }
+  
+  // MARK: Game Management Methods
+  func revive() {
     
+    let reviveScene = ReviveScene(size: size)
+    reviveScene.scaleMode = scaleMode
+    let transitionType = SKTransition.flipHorizontal(withDuration: 0.5)
+    view?.presentScene(reviveScene,transition: transitionType)
     
   }
   
@@ -225,8 +243,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       gameOver.alpha = 0
       addChild(gameOver)
     
-      
   }
+  
+  
   
   // create the player
   func createPlayer() {
