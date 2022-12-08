@@ -36,12 +36,12 @@ class StartGameScene: SKScene {
     
     let addedSteps = Int(Int(globalUser.currentStep) - prevSteps)/100
     
-    let totalCoins = SKLabelNode(text: "Total Coins: \(globalUser.getCoins())")
+    let totalCoins = SKLabelNode(text: "Total Coins Earned: \(globalUser.getCoins())")
     totalCoins.fontName = "AvenirNext-Bold"
     totalCoins.position = CGPoint(x: size.width/2, y: size.height/2 + 200)
     addChild(totalCoins)
     
-    let newCoins = SKLabelNode(text: "Congrats!! You earned: \(addedSteps) coins")
+    let newCoins = SKLabelNode(text: "Congrats!! You Just earned: \(addedSteps) coins")
     newCoins.fontName = "AvenirNext-Bold"
     newCoins.fontSize = 20
     newCoins.position = CGPoint(x: size.width/2, y: size.height/2 + 100)
