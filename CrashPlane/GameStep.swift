@@ -21,25 +21,35 @@ class GameStep {
     self.currentStep = 0;
     self.defaults = UserDefaults.standard
     self.theCoin = self.defaults.integer(forKey: "coins")
+    self.updateCoins()
+  }
+  
+  func updateCoins() {
     self.updateSteps {
-      if self.defaults.integer(forKey: "coins") == 0 {
+      if self.getCoins() == 0 {
         self.theCoin = self.convertCoins()
       }
-      if self.defaults.integer(forKey: "steps") == 0 {
+      if self.getSteps() == 0 {
         self.defaults.set(self.currentStep, forKey: "steps")
       }
-      print("old step is \(self.defaults.integer(forKey: "steps")), new step is \(Int(self.currentStep))\n")
-      if self.defaults.integer(forKey: "steps") < Int(self.currentStep) {
+      if self.getSteps() < Int(self.currentStep) {
         
-        let increment = (Int(self.currentStep) - self.defaults.integer(forKey: "steps"))/100
+        let increment = (Int(self.currentStep) - self.getSteps())/100
         self.theCoin += increment
-        print("new coins is \(self.defaults.integer(forKey: "coins") + increment)")
-        self.defaults.set(self.defaults.integer(forKey: "coins") + increment, forKey: "coins")
+        self.defaults.set(self.getCoins() + increment, forKey: "coins")
         self.defaults.set(self.currentStep, forKey: "steps")
-        print("set default to \(self.defaults.integer(forKey: "coins"))\n")
       }
     }
     
+    
+  }
+  
+  func getCoins() -> Int {
+    return self.defaults.integer(forKey: "coins")
+  }
+  
+  func getSteps() -> Int {
+    return self.defaults.integer(forKey: "steps")
   }
   
   func updateSteps( closure: @escaping () -> Void){
@@ -61,8 +71,7 @@ class GameStep {
   
   func convertCoins() -> Int{
     theCoin = (Int(self.currentStep))/100
-    //self.user.coins = self.user.coins + thisCoin
-    if self.defaults.integer(forKey: "coins") == 0 {
+    if self.getCoins() == 0 {
       self.defaults.set(self.theCoin, forKey: "coins")
       print("set coins to \(self.theCoin)\n")
     }

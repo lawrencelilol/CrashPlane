@@ -48,8 +48,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
   }
   
-  // default cost for revive is 5
-  let costToRevive = 5
+  // default cost for revive is 20 for now
+  
   
   // cache for creating rock
   
