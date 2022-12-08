@@ -29,6 +29,7 @@ class StartGameScene: SKScene {
     startGameButton.name = "startgame"
     addChild(startGameButton)
     
+    // record the steps for next time the user opens the app in the same day
     let prevSteps = globalUser.defaults.integer(forKey: "steps")
   
     globalUser.updateCoins()
@@ -36,18 +37,29 @@ class StartGameScene: SKScene {
     
     var addedCoins = Int(Int(globalUser.currentStep) - prevSteps)/100
     
+    // make sure we only show positive value of the coins after the
+    // users' steps set to zero at 0:00 Am everyday
     addedCoins = max(0, addedCoins)
     
+    // total coins
     let totalCoins = SKLabelNode(text: "Total Coins Earned: \(globalUser.getCoins())")
     totalCoins.fontName = "AvenirNext-Bold"
-    totalCoins.position = CGPoint(x: size.width/2, y: size.height/2 + 200)
+    totalCoins.position = CGPoint(x: size.width/2, y: size.height/2 + 300)
     addChild(totalCoins)
     
+    // new coins added since last login the app
     let newCoins = SKLabelNode(text: "Congrats!! You Just earned: \(addedCoins) coins")
     newCoins.fontName = "AvenirNext-Bold"
-    newCoins.fontSize = 20
-    newCoins.position = CGPoint(x: size.width/2, y: size.height/2 + 100)
+    newCoins.fontSize = 22
+    newCoins.position = CGPoint(x: size.width/2, y: size.height/2 + 200)
     addChild(newCoins)
+    
+    // exchange steps to coins info
+    let exchange = SKLabelNode(text: "100 steps for 1 coin")
+    exchange.fontName = "AvenirNext-Bold"
+    exchange.fontSize = 18
+    exchange.position = CGPoint(x: size.width/2, y: size.height/2 + 100)
+    addChild(exchange)
     
     
   }
