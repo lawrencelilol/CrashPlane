@@ -62,7 +62,7 @@
 		217D8FA92921EC8C00F7FA59 /* CrashPlaneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrashPlaneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		217D8FAD2921EC8C00F7FA59 /* CrashPlaneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashPlaneUITests.swift; sourceTree = "<group>"; };
 		217D8FAF2921EC8C00F7FA59 /* CrashPlaneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrashPlaneUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		21836CE62926CA0A004082D7 /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = music.m4a; sourceTree = "<group>"; };
+		21836CE62926CA0A004082D7 /* music.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; name = music.m4a; path = CrashPlane/music.m4a; sourceTree = SOURCE_ROOT; };
 		2197674C29231B2F00C25E89 /* PlayerExplosion.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerExplosion.sks; sourceTree = "<group>"; };
 		2197674E29231B3800C25E89 /* coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = coin.wav; sourceTree = "<group>"; };
 		2197675029231B3F00C25E89 /* explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = explosion.wav; sourceTree = "<group>"; };
