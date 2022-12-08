@@ -12,17 +12,14 @@ enum GameState {
     case showingLogo
     case playing
     case dead
-//    case revive
 }
 
 
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
   
-  // import GameStepSDK
   
   var user = globalUser
-//  var coins = user.theCoin
   
   var player: SKSpriteNode!
   var scoreLabel: SKLabelNode!
@@ -47,9 +44,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       coinLabel.text = "COIN: \(coin)"
     }
   }
-  
-  // default cost for revive is 20 for now
-  
+    
   
   // cache for creating rock
   
@@ -126,26 +121,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
           view?.presentScene(scene, transition: transition)
         }
         
-        
-        
-        // we don't need revive anymore
-        //      case .revive:
-        
-        
-        //        self.user.consumeCoin(coin: costToRevive)
-        //        let scoreWhenDead = score
-        //        let coinAfterRevive = coin - costToRevive
-        
-        //        revive()
-        
-        
-        //        if let scene = GameScene(fileNamed: "GameScene") {
-        //          scene.scaleMode = .aspectFill
-        //          let transition = SKTransition.moveIn(with: SKTransitionDirection.right, duration: 1)
-        //          view?.presentScene(scene, transition: transition)
-        //          scene.setScore(val: scoreWhenDead)
-        ////          scene.setCoin(val: coinAfterRevive)
-        //        }
     }
         
  
@@ -201,8 +176,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         globalScore = score
         
-//        gameState = .revive
-//        player.removeFromParent()
         speed = 0
         
         revive()

@@ -29,6 +29,7 @@ class ReviveScene: SKScene {
     newgameButton.name = "newgame"
     addChild(newgameButton)
     
+    // cost to revive text
     let reviveCostText = SKLabelNode(text: "Cost 20 coins to revive")
     reviveCostText.position = CGPoint(x: size.width/2, y: size.height/2 + 200)
     reviveCostText.fontName = "AvenirNext-Bold"
@@ -50,9 +51,6 @@ class ReviveScene: SKScene {
         view?.presentScene(scene, transition: transition)
         
         self.user.consumeCoin(coin: costToRevive)
-//        let scoreWhenDead = score
-        
-        // hard code for 100 now for testing
         
         scene.setScore(val: globalScore)
       }

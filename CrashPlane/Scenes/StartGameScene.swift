@@ -9,8 +9,12 @@ import UIKit
 import SpriteKit
 
 // All the global variables are here
+
+// Initialize GameStepSDK here
 var globalUser = GameStep()
+// score of the user in the game cycle
 var globalScore = 0
+// Default cost for revive
 let costToRevive = 20
 
 class StartGameScene: SKScene {
