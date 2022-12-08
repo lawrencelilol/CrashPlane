@@ -59,10 +59,8 @@ class GameStep {
         if success {
           healthStore.getSteps { unwrapp in
             self.currentStep = unwrapp
-            print("inside " + String(self.currentStep))
             closure()
           }
-          print("outside " + String(self.currentStep))
         }
         
       }
