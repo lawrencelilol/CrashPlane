@@ -27,7 +27,7 @@ The ```GameStep``` file act as a main controller of the SDK, which it receive th
 
 The ```GameStep``` main class have variables like:
 - ```healthstore``` is used to retreive steps from healthkit.
-- ```currentStep``, is used to record the newest step retreived from the healthkit.
+- ```currentStep```, is used to record the newest step retreived from the healthkit.
 - ```theCoin``` is used to record the newest coin converted.
 
 
@@ -49,4 +49,5 @@ In future versions, if applicable, we hope the SDK will explore more powerful fe
 ***
 
 ## Develop Environment
-Swift 5
+* Swift 5
+* iOS 16.1
