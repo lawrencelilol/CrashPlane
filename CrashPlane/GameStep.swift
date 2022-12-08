@@ -7,8 +7,6 @@
 import CoreData
 import Foundation
 
-//import FirebaseFirestore
-//import FirebaseFirestoreSwift
 
 
 class GameStep {
@@ -22,12 +20,24 @@ class GameStep {
     self.healthStore = HealthStore();
     self.currentStep = 0;
     self.defaults = UserDefaults.standard
-    self.theCoin = self.defaults.integer(forKey: "coins");
+    self.theCoin = self.defaults.integer(forKey: "coins")
     self.updateSteps {
       if self.defaults.integer(forKey: "coins") == 0 {
         self.theCoin = self.convertCoins()
       }
-      self.defaults.set(self.currentStep, forKey: "steps")
+      if self.defaults.integer(forKey: "steps") == 0 {
+        self.defaults.set(self.currentStep, forKey: "steps")
+      }
+      print("old step is \(self.defaults.integer(forKey: "steps")), new step is \(Int(self.currentStep))\n")
+      if self.defaults.integer(forKey: "steps") < Int(self.currentStep) {
+        
+        let increment = (Int(self.currentStep) - self.defaults.integer(forKey: "steps"))/100
+        self.theCoin += increment
+        print("new coins is \(self.defaults.integer(forKey: "coins") + increment)")
+        self.defaults.set(self.defaults.integer(forKey: "coins") + increment, forKey: "coins")
+        self.defaults.set(self.currentStep, forKey: "steps")
+        print("set default to \(self.defaults.integer(forKey: "coins"))\n")
+      }
     }
     
   }
@@ -69,5 +79,3 @@ class GameStep {
   }
 
 }
-
-

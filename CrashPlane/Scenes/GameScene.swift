@@ -126,6 +126,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
           view?.presentScene(scene, transition: transition)
         }
         
+        
+        
         // we don't need revive anymore
         //      case .revive:
         
@@ -197,7 +199,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       // change states when the user is dead
       if coin >= costToRevive {
         
-        
+        globalScore = score
         
 //        gameState = .revive
 //        player.removeFromParent()

@@ -8,11 +8,12 @@
 import UIKit
 import SpriteKit
 
-let globalUser = GameStep()
+var globalUser = GameStep()
+var globalScore = 0
 
 class StartGameScene: SKScene {
   
-  var user = globalUser
+//  var user = globalUser
   
   override func didMove(to view: SKView) {
     backgroundColor = SKColor.black
@@ -24,7 +25,28 @@ class StartGameScene: SKScene {
     addChild(startGameButton)
     
     // Steps text
-    let coinText = SKLabelNode(text: "Coins Earned: \(user.defaults.integer(forKey: "coins"))")
+//    globalUser = GameStep()
+    globalUser.updateSteps {
+      if globalUser.defaults.integer(forKey: "coins") == 0 {
+        globalUser.theCoin = globalUser.convertCoins()
+      }
+      if globalUser.defaults.integer(forKey: "steps") == 0 {
+        globalUser.defaults.set(globalUser.currentStep, forKey: "steps")
+      }
+      print("old step is \(globalUser.defaults.integer(forKey: "steps")), new step is \(Int(globalUser.currentStep))\n")
+      if globalUser.defaults.integer(forKey: "steps") < Int(globalUser.currentStep) {
+        
+        let increment = (Int(globalUser.currentStep) - globalUser.defaults.integer(forKey: "steps"))/100
+        globalUser.theCoin += increment
+        print("new coins is \(globalUser.defaults.integer(forKey: "coins") + increment)")
+        globalUser.defaults.set(globalUser.defaults.integer(forKey: "coins") + increment, forKey: "coins")
+        globalUser.defaults.set(globalUser.currentStep, forKey: "steps")
+        print("set default to \(globalUser.defaults.integer(forKey: "coins"))\n")
+      }
+    }
+    sleep(1)
+    let coinText = SKLabelNode(text: "Coins Earned: \(globalUser.defaults.integer(forKey: "coins"))")
+    print("in start game scene, coin is \(globalUser.defaults.integer(forKey: "coins"))")
     coinText.position = CGPoint(x: size.width/2, y: size.height/2 + 100)
     addChild(coinText)
     
@@ -53,3 +75,4 @@ class StartGameScene: SKScene {
   }
 
 }
+

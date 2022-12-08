@@ -48,7 +48,7 @@ class ReviveScene: SKScene {
         
         // hard code for 100 now for testing
         
-        scene.setScore(val: 100)
+        scene.setScore(val: globalScore)
       }
     } else {
       
@@ -56,7 +56,8 @@ class ReviveScene: SKScene {
         scene.scaleMode = .aspectFill
         let transition = SKTransition.moveIn(with: SKTransitionDirection.right, duration: 1)
         view?.presentScene(scene, transition: transition)
-        scene.setScore(val: 0)
+        globalScore = 0
+        scene.setScore(val: globalScore)
       }
     }
   }
