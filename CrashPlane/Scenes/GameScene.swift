@@ -12,17 +12,17 @@ enum GameState {
     case showingLogo
     case playing
     case dead
-    case revive
+//    case revive
 }
 
-let globalUser = GameStep()
+
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
   
   // import GameStepSDK
-	
-	var user = globalUser
-//	var coins = user.theCoin
+  
+  var user = globalUser
+//  var coins = user.theCoin
   
   var player: SKSpriteNode!
   var scoreLabel: SKLabelNode!
@@ -39,10 +39,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
           scoreLabel.text = "SCORE: \(score)"
       }
   }
-	
+  
   
   // testing purpose providing user 10 coins for now
-	var coin = 0 {
+  var coin = 0 {
     didSet {
       coinLabel.text = "COIN: \(coin)"
     }
@@ -96,49 +96,57 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     
     switch gameState {
-        case .showingLogo:
-			
-			      setCoin(val: user.theCoin)
+      case .showingLogo:
         
-            gameState = .playing
-
-            let fadeOut = SKAction.fadeOut(withDuration: 0.5)
-            let remove = SKAction.removeFromParent()
-            let wait = SKAction.wait(forDuration: 0.5)
-            let activatePlayer = SKAction.run { [unowned self] in
-                self.player.physicsBody?.isDynamic = true
-                self.startRocks()
-            }
-
-            let sequence = SKAction.sequence([fadeOut, wait, activatePlayer, remove])
-            logo.run(sequence)
-
-        case .playing:
+        setCoin(val: user.theCoin)
         
-            player.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
-
-        case .dead:
-			
-          if let scene = GameScene(fileNamed: "GameScene") {
-            scene.scaleMode = .aspectFill
-            let transition = SKTransition.moveIn(with: SKTransitionDirection.right, duration: 1)
-            view?.presentScene(scene, transition: transition)
-          }
+        gameState = .playing
         
-      case .revive:
-			  self.user.consumeCoin(coin: 20)
-        let scoreWhenDead = score
-//        let coinAfterRevive = coin - costToRevive
+        let fadeOut = SKAction.fadeOut(withDuration: 0.5)
+        let remove = SKAction.removeFromParent()
+        let wait = SKAction.wait(forDuration: 0.5)
+        let activatePlayer = SKAction.run { [unowned self] in
+          self.player.physicsBody?.isDynamic = true
+          self.startRocks()
+        }
+        
+        let sequence = SKAction.sequence([fadeOut, wait, activatePlayer, remove])
+        logo.run(sequence)
+        
+      case .playing:
+        
+        player.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+        player.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 20))
+        
+      case .dead:
         
         if let scene = GameScene(fileNamed: "GameScene") {
           scene.scaleMode = .aspectFill
           let transition = SKTransition.moveIn(with: SKTransitionDirection.right, duration: 1)
           view?.presentScene(scene, transition: transition)
-          scene.setScore(val: scoreWhenDead)
-//          scene.setCoin(val: coinAfterRevive)
         }
-      }
+        
+        
+        
+        // we don't need revive anymore
+        //      case .revive:
+        
+        
+        //        self.user.consumeCoin(coin: costToRevive)
+        //        let scoreWhenDead = score
+        //        let coinAfterRevive = coin - costToRevive
+        
+        //        revive()
+        
+        
+        //        if let scene = GameScene(fileNamed: "GameScene") {
+        //          scene.scaleMode = .aspectFill
+        //          let transition = SKTransition.moveIn(with: SKTransitionDirection.right, duration: 1)
+        //          view?.presentScene(scene, transition: transition)
+        //          scene.setScore(val: scoreWhenDead)
+        ////          scene.setCoin(val: coinAfterRevive)
+        //        }
+    }
         
  
   }
@@ -189,11 +197,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       run(sound)
       
       // change states when the user is dead
-      if coin >= 5 {
+      if coin >= costToRevive {
         
-        gameState = .revive
+        globalScore = score
+        
+//        gameState = .revive
+//        player.removeFromParent()
         speed = 0
         
+        revive()
+      
         
         
       } else {
@@ -207,17 +220,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         player.removeFromParent()
         speed = 0
       }
-      
     }
-    
-    // if user have efficient coins
     
   }
   
-//  func revive() {
-//    gameState = .showingLogo
-//
-//  }
+  // MARK: Game Management Methods
+  func revive() {
+    
+    let reviveScene = ReviveScene(size: size)
+    reviveScene.scaleMode = scaleMode
+    let transitionType = SKTransition.flipHorizontal(withDuration: 0.5)
+    view?.presentScene(reviveScene,transition: transitionType)
+    
+  }
+  
   // create the start scene and end scene for the game
   func createLogos() {
       logo = SKSpriteNode(imageNamed: "logo")
@@ -229,8 +245,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       gameOver.alpha = 0
       addChild(gameOver)
     
-      
   }
+  
+  
   
   // create the player
   func createPlayer() {
@@ -404,7 +421,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       coinLabel.fontSize = 20
 
       coinLabel.position = CGPoint(x: frame.midX + 65, y: frame.maxY - 70)
-		  coinLabel.text = "COIN: \(user.theCoin)"
+      coinLabel.text = "COIN: \(user.defaults.integer(forKey: "coins"))"
       coinLabel.fontColor = UIColor.black
 
       addChild(coinLabel)
@@ -412,4 +429,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   
 }
+
 
