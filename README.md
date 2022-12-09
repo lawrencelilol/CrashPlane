@@ -11,7 +11,7 @@ To best imitate a true developing environent, internal coding of the SDK were en
 If the user wants to see how much coins earned since last login of the game, user needs to quit the app first and open the app to see the new coins earned.
 ***
 
-## User Guide (for users to install the app for the first time)
+## User Guide (for users to install and test the app on their phone for the first time)
 
 1. Clone the project to Xcode
 2. Run the App. (It may has errors about APP identifier) 
