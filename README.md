@@ -2,14 +2,14 @@
 
 A FlappyBird Clone using Swift and SpriteKit
 
-Credit to :https://www.hackingwithswift.com/read/36/overview
+CrashPlane App is developed based on project provided here:https://www.hackingwithswift.com/read/36/overview
 
 This repository is the demostration of the implementation of the GameStep SDK. The main structure consists with three parts: the controller of the game, the scene and the SDK implementation.
 
 To best imitate a true developing environent, internal coding of the SDK were encapsulated in the ```GameStepSDK``` folder, like an imported package.
 
-## The SDK
-The SDK functions as following:
+## GameStep SDK
+GameStep SDK functions as following:
 1. Retreiving steps data from Apple HealthKit.
 2. Converting steps to coins (100 steps = 1 coin).
 3. Store the coins and steps data permanantly to the phone through Apple Developer Tool ```UserDefault``` class.
@@ -39,7 +39,7 @@ The ```GameStep``` main class have variables like:
 ```defaults``` stores the the last state of steps and coins from last update of before the user quit the app from last time.
 ***
 
-## How to use th SDK
+## How to use GameStep SDK
 1. Import the package.
 2. Initialize the instance of GameStep.
 3. Use the interface for the coins and steps to manipulate.
