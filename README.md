@@ -10,7 +10,7 @@ To best imitate a true developing environent, internal coding of the SDK were en
 
 If the user wants to see how much coins earned since last login of the game, user needs to quit the app first and open the app to see the new coins earned.
 
-## Testing For Spring 6
+## Testing For Sprint 6
 
 1. Clone the project to Xcode
 2. Run the App. (It may has errors about APP identifier) 
