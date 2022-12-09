@@ -26,18 +26,22 @@ Just change the App identifier based on your machine. It should work.
 click Allow and the app should start fetches your step data.
 
 4. It may show 0 step and 0 coins after you first enter the game for now.
-![image](https://user-images.githubusercontent.com/35508198/206641115-98f21208-d6d2-480d-a63c-45bd73dd0a65.png)
+<img src="https://user-images.githubusercontent.com/35508198/206641115-98f21208-d6d2-480d-a63c-45bd73dd0a65.png"  width="30%" height="10%">
+
 
 You just need to quit the App and reopen it again. Then you coins should be there!
 
-![image](https://user-images.githubusercontent.com/35508198/206641249-0bf2a453-ace9-4490-9b5e-90c0e1419bbd.png)
+
+<img src="https://user-images.githubusercontent.com/35508198/206641249-0bf2a453-ace9-4490-9b5e-90c0e1419bbd.png"  width="30%" height="10%">
+
 
 Then you can start playing the game and revive with the coins you earned!
 
 5. If you are bored and want to walks a couple miles to earn more coins, you just need to quit the game. After finish walking,
 you decide to play the game again and check to see the coins you just earned, you just need to open the app again. 
 
-![image](https://user-images.githubusercontent.com/35508198/206641913-8eca0fff-e48b-4c04-b4f4-2ff71bf5025e.png)
+<img src="https://user-images.githubusercontent.com/35508198/206641913-8eca0fff-e48b-4c04-b4f4-2ff71bf5025e.png"  width="30%" height="10%">
+
 
 You will see you have earned more coins just for walking around!
 
