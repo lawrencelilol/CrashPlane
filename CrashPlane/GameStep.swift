@@ -71,7 +71,6 @@ class GameStep {
     theCoin = (Int(self.currentStep))/100
     if self.getCoins() == 0 {
       self.defaults.set(self.theCoin, forKey: "coins")
-      print("set coins to \(self.theCoin)\n")
     }
     
     return theCoin
@@ -81,7 +80,6 @@ class GameStep {
   func consumeCoin(coin: Int) -> Int {
     theCoin -= coin
     self.defaults.set(self.theCoin, forKey: "coins")
-    print("set coins to \(self.theCoin)\n")
     return theCoin
   }
 

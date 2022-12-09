@@ -18,9 +18,11 @@ var globalScore = 0
 let costToRevive = 20
 
 class StartGameScene: SKScene {
+  var user = globalUser
   
   override func didMove(to view: SKView) {
     backgroundColor = SKColor.black
+    
     
     
     // button

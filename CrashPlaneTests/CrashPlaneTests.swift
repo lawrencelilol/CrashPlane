@@ -17,6 +17,38 @@ final class CrashPlaneTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
+  
+  
+      func test_getCoins() {
+  
+        let SDK = CrashPlane.StartGameScene().user
+        let oldCoins = SDK.getCoins()
+        SDK.consumeCoin(coin: 5)
+        let coins = SDK.getCoins()
+        XCTAssertEqual(oldCoins - coins, 5)
+      }
+  
+      func test_getSteps() {
+        let SDK = CrashPlane.StartGameScene().user
+        let steps = SDK.getSteps()
+        XCTAssertEqual(steps, SDK.defaults.integer(forKey: "steps"))
+      }
+  
+      func test_convertCoins() {
+          let SDK = CrashPlane.StartGameScene().user
+  
+          let coins = SDK.convertCoins()
+          let steps = Int(SDK.currentStep)
+          XCTAssertTrue(steps >= coins * 100 && steps <= (coins + 1) * 100)
+      }
+  
+      func test_consumeCoins() {
+          let SDK = CrashPlane.StartGameScene().user
+          let oldCoins = SDK.getCoins()
+          SDK.consumeCoin(coin: 10)
+          let coins = SDK.getCoins()
+          XCTAssertEqual(oldCoins - coins, 10)
+    }
 
     func testExample() throws {
         // This is an example of a functional test case.
