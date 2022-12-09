@@ -19,7 +19,10 @@ If the user wants to see how much coins earned since last login of the game, use
 Just change the App identifier based on your machine. It should work.
 
 3. After the app runs successfully, the first thing it would ask permission to access user's health data.
-![image](https://user-images.githubusercontent.com/35508198/206640932-1ae62e1e-cb59-418e-930a-05dc49ce7437.png){width=250}
+![image](https://user-images.githubusercontent.com/35508198/206640932-1ae62e1e-cb59-418e-930a-05dc49ce7437.png =200x200)
+
+![figure description](imageFile.png){width=250}
+
 
 click Allow and the app should start fetches your step data.
 
