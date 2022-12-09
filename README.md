@@ -9,6 +9,7 @@ This repository is the demostration of the implementation of the GameStep SDK. T
 To best imitate a true developing environent, internal coding of the SDK were encapsulated in the ```GameStepSDK``` folder, like an imported package.
 
 If the user wants to see how much coins earned since last login of the game, user needs to quit the app first and open the app to see the new coins earned.
+***
 
 ## Testing For Sprint 6
 
@@ -45,7 +46,7 @@ you decide to play the game again and check to see the coins you just earned, yo
 
 You will see you have earned more coins just for walking around!
 
-
+***
 ## GameStep SDK
 GameStep SDK functions as following:
 1. Retreiving steps data from Apple HealthKit.
