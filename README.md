@@ -10,6 +10,36 @@ To best imitate a true developing environent, internal coding of the SDK were en
 
 If the user wants to see how much coins earned since last login of the game, user needs to quit the app first and open the app to see the new coins earned.
 
+## Testing For Spring 6
+
+1. Clone the project to Xcode
+2. Run the App. (It may has errors about APP identifier) 
+<img width="247" alt="image" src="https://user-images.githubusercontent.com/35508198/206640681-9750cdb9-1237-40d9-b530-3348eaf0185f.png">
+
+Just change the App identifier based on your machine. It should work.
+
+3. After the app runs successfully, the first thing it would ask permission to access user's health data.
+![image](https://user-images.githubusercontent.com/35508198/206640932-1ae62e1e-cb59-418e-930a-05dc49ce7437.png)
+
+click Allow and the app should start fetches your step data.
+
+4. It may show 0 step and 0 coins after you first enter the game for now.
+![image](https://user-images.githubusercontent.com/35508198/206641115-98f21208-d6d2-480d-a63c-45bd73dd0a65.png)
+
+You just need to quit the App and reopen it again. Then you coins should be there!
+
+![image](https://user-images.githubusercontent.com/35508198/206641249-0bf2a453-ace9-4490-9b5e-90c0e1419bbd.png)
+
+Then you can start playing the game and revive with the coins you earned!
+
+5. If you are bored and want to walks a couple miles to earn more coins, you just need to quit the game. After finish walking,
+you decide to play the game again and check to see the coins you just earned, you just need to open the app again. 
+
+![image](https://user-images.githubusercontent.com/35508198/206641913-8eca0fff-e48b-4c04-b4f4-2ff71bf5025e.png)
+
+You will see you have earned more coins just for walking around!
+
+
 ## GameStep SDK
 GameStep SDK functions as following:
 1. Retreiving steps data from Apple HealthKit.
@@ -53,6 +83,7 @@ The ```GameStep``` main class have variables like:
 5. The SDK will handle the update and store new data whenever the function were called.
 
 In future versions, if applicable, we hope the SDK will explore more powerful features in the SDK and build a platform for it. 
+
 
 ***
 
