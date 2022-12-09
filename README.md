@@ -8,6 +8,8 @@ This repository is the demostration of the implementation of the GameStep SDK. T
 
 To best imitate a true developing environent, internal coding of the SDK were encapsulated in the ```GameStepSDK``` folder, like an imported package.
 
+If the user wants to see how much coins earned since last login of the game, user needs to quit the app first and open the app to see the new coins earned.
+
 ## GameStep SDK
 GameStep SDK functions as following:
 1. Retreiving steps data from Apple HealthKit.
