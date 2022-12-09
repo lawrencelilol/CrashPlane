@@ -18,6 +18,7 @@ var globalScore = 0
 let costToRevive = 20
 
 class StartGameScene: SKScene {
+  var user = globalUser
   
   override func didMove(to view: SKView) {
     backgroundColor = SKColor.black
@@ -50,7 +51,7 @@ class StartGameScene: SKScene {
     // new coins added since last login the app
     let newCoins = SKLabelNode(text: "Congrats!! You Just earned: \(addedCoins) coins")
     newCoins.fontName = "AvenirNext-Bold"
-    newCoins.fontSize = 22
+    newCoins.fontSize = 20
     newCoins.position = CGPoint(x: size.width/2, y: size.height/2 + 200)
     addChild(newCoins)
     

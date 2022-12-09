@@ -80,7 +80,6 @@ class HealthStore {
 	}
 	//this will prompt to the user and ask for authroization
 	func requestAuthorization(completion: @escaping (Bool) -> Void) {
-		print("inside HS")
 		let stepType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.stepCount)!
 		
 		guard let healthStore = self.healthStore else { return completion(false) }
