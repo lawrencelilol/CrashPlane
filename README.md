@@ -138,8 +138,9 @@ In future versions, if applicable, we hope the SDK will explore more powerful fe
         - Failure condition:
           - User not allow access, no steps fetched and no coins.
           - But still able to play the game.
-###B-Level Use case
-####1. Revive
+          
+### B-Level Use Case
+#### 3. Revive
   - Pre-condition.
     - Success in Use case 2
     - Finish the basic flow in Use case 1
