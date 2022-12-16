@@ -97,3 +97,70 @@ In future versions, if applicable, we hope the SDK will explore more powerful fe
 ## Develop Environment
 * Swift 5
 * iOS 16.1
+
+*** 
+
+## Use Cases
+### A-Level Use Case
+#### 1. Play the Game
+- Actors: Users
+- Precondition:
+  1. User downloaded the app.
+  2. User allow the healthkit connection
+- Basic Flow
+  1. User launch the app.
+  2. User tap the screen and play the game.
+  3. User died.
+  4. Next use case
+- Alternative Flow
+  2A1. User quit before play
+  2A2. User quic after play
+  3A1. User Revive: go to use case 3
+- Post condition:
+  - successful condition:
+    - user plays the game until he/she died.
+  - failure condition
+    - user fails before he/she died in the game. Like Alternative Flow 1 & 2
+#### 2. Step for coins
+  - Actor: Users
+  - Precondition
+    1. User downloaded the app.
+  - Basic Flow
+    1. User launch the app.
+    2. The coins were converted steps from last time the user open the app, i.e. last time: 10000 steps and 50 coins, this time 15000 steps, 5000 more steps will convert to 50 coins, so now the user has 100 coins.
+  - Alternative Flow
+    2A1: 
+      - Pre-condition: user open the app for the very first time
+        1. User will be prompt to ask for access of steps data
+      - Post-condition:
+        - Successful condition:
+          - User allow access, step converted to coins
+        - Failure condition:
+          - User not allow access, no steps fetched and no coins.
+          - But still able to play the game.
+###B-Level Use case
+####1. Revive
+  - Pre-condition.
+    - Success in Use case 2
+    - Finish the basic flow in Use case 1
+  - Basic flow
+    1. User died from playing
+    2. User choose to revive
+    3. User have enough coins to revive
+    4. User revives, the score before died keeps
+  - Alternative Flow
+    2A1:
+      1. User choose new game
+      2. Coins were deducted
+    2A2:
+      1. User choose to revive.
+      2. no enough coin
+      3. game over scene
+  -post condition
+    1. Success Condition
+      - User continue on the game
+    2. Failed Condition
+      1. User start new game without old score
+      
+    
+    
